@@ -1,0 +1,90 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "scaffold-lint"
+version = "0.1.0"
+description = "Static linter for LLM prompt scaffolds — catches oversized scaffolds and incompatible technique mixes (evidential + step-by-step + format)."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Rolando Bosch", email = "rbosch@lpci.ai" },
+]
+maintainers = [
+    { name = "Hermes Labs", email = "rbosch@lpci.ai" },
+]
+keywords = [
+    "llm",
+    "prompts",
+    "scaffolds",
+    "linter",
+    "static-analysis",
+    "agent-audit",
+    "prompt-engineering",
+    "hermes-labs",
+    "ai-audit",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.5",
+]
+
+[project.scripts]
+scaffold-lint = "scaffold_lint.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/roli-lpci/scaffold-lint"
+Repository = "https://github.com/roli-lpci/scaffold-lint"
+Issues = "https://github.com/roli-lpci/scaffold-lint/issues"
+Changelog = "https://github.com/roli-lpci/scaffold-lint/blob/main/CHANGELOG.md"
+"Hermes Labs" = "https://hermes-labs.ai"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/scaffold_lint"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/",
+    "tests/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]

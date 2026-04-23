@@ -1,0 +1,58 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:d3f8a1c2-5b4e-4a9f-8c6b-7d2e8f1a3b4c",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-04-22T00:00:00Z",
+    "tools": [
+      {
+        "vendor": "Hermes Labs",
+        "name": "hand-crafted",
+        "version": "1.0"
+      }
+    ],
+    "component": {
+      "type": "library",
+      "bom-ref": "pkg:pypi/scaffold-lint@0.1.0",
+      "name": "scaffold-lint",
+      "version": "0.1.0",
+      "description": "Static linter for LLM prompt scaffolds.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "purl": "pkg:pypi/scaffold-lint@0.1.0",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://hermes-labs.ai"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/roli-lpci/scaffold-lint"
+        },
+        {
+          "type": "issue-tracker",
+          "url": "https://github.com/roli-lpci/scaffold-lint/issues"
+        }
+      ],
+      "authors": [
+        {
+          "name": "Rolando Bosch",
+          "email": "rbosch@lpci.ai"
+        }
+      ]
+    }
+  },
+  "components": [],
+  "dependencies": [
+    {
+      "ref": "pkg:pypi/scaffold-lint@0.1.0",
+      "dependsOn": []
+    }
+  ]
+}

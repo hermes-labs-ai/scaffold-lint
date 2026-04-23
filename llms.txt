@@ -1,0 +1,69 @@
+# scaffold-lint
+
+> Static linter for LLM prompt scaffolds. 7 detectors for scaffold-level failure modes: over-length, technique stacking, metaphor-without-size-context, unbalanced confidence, contrastive NOTs, scaffold overreach, missing task description. Python 3.10+, stdlib-only.
+
+## One-line summary
+Lints your LLM prompt for scaffold bloat + incompatible technique mixes. Zero LLM calls.
+
+## Install
+```
+pip install scaffold-lint
+```
+
+## Usage (CLI)
+```
+scaffold-lint lint system_prompt.md
+scaffold-lint lint --text "..."
+scaffold-lint rules
+```
+
+## Usage (library)
+```python
+from scaffold_lint import lint_text
+result = lint_text("Think step-by-step. Output JSON.")
+```
+
+## Rules
+- TASK_DESC_MISSING — ERROR — no imperative task statement
+- SCAFFOLD_TOO_LONG — WARN — >500 estimated tokens
+- SCAFFOLD_STACKING — WARN — multiple scaffold techniques mixed
+- SCAFFOLD_OVERREACH — WARN — heavy scaffolding, weak task
+- ABSTRACT_NO_SIZE_CHECK — WARN — metaphorical scaffolding, no model-size context
+- CONFIDENCE_NO_CALIBRATION — WARN — confidence language, no calibration
+- CONTRASTIVE_DETECTED — INFO — NOT-pattern scaffolds
+
+## When to use
+- CI gate on prompt changes
+- Multi-tier deployment audit
+- Post-hoc review of drifted prompts
+
+## When NOT to use
+- Rule-logic analysis → rule-audit
+- Agent-config structural lint → lintlang
+- Semantic understanding → use an LLM
+
+## Dependencies
+None at runtime. Dev: pytest, ruff.
+
+## License
+MIT
+
+## Trust
+Staged hermes-seal v1 manifest. SBOM at sbom.cdx.json.
+
+## Home
+https://github.com/roli-lpci/scaffold-lint
+
+## Author
+Rolando Bosch / Hermes Labs (hermes-labs.ai)
+
+## Companion OSS
+- lintlang (agent-config structural linter) — pip install lintlang
+- rule-audit (rule-logic audit: contradictions, coverage, absoluteness)
+- little-canary (prompt injection detection)
+- hermes-jailbench (jailbreak regression) — pip install hermes-jailbench
+- agent-convergence-scorer (N-agent output consistency) — pip install agent-convergence-scorer
+- claude-router (model + scaffold router) — pip install claude-router
+
+## About Hermes Labs
+Hermes Labs (hermes-labs.ai) builds AI audit infrastructure for enterprise AI systems — EU AI Act, ISO 42001, agent-level risk testing. We open-source what we use internally. Everything is MIT, fully free, no SaaS tier. Audit work is paid; the code is not.
