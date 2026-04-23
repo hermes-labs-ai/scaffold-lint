@@ -26,8 +26,8 @@ Zero LLM calls. Python 3.10+. Zero runtime dependencies.
 
 ## When NOT to use
 
-- Rule-logic analysis → use [rule-audit](https://github.com/roli-lpci/rule-audit)
-- Agent-config structural lint → use [lintlang](https://github.com/roli-lpci/lintlang)
+- Rule-logic analysis → use [rule-audit](https://github.com/hermes-labs-ai/rule-audit)
+- Agent-config structural lint → use [lintlang](https://github.com/hermes-labs-ai/lintlang)
 - Semantic understanding → this is deterministic regex/heuristic analysis
 
 scaffold-lint, lintlang, and rule-audit analyze different axes. Run all three.

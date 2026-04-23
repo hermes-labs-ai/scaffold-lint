@@ -33,11 +33,11 @@
         },
         {
           "type": "vcs",
-          "url": "https://github.com/roli-lpci/scaffold-lint"
+          "url": "https://github.com/hermes-labs-ai/scaffold-lint"
         },
         {
           "type": "issue-tracker",
-          "url": "https://github.com/roli-lpci/scaffold-lint/issues"
+          "url": "https://github.com/hermes-labs-ai/scaffold-lint/issues"
         }
       ],
       "authors": [

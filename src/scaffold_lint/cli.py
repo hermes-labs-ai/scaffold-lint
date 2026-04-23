@@ -3,9 +3,16 @@
 from __future__ import annotations
 
 import argparse
+import contextlib
 import json
 import sys
 from pathlib import Path
+
+# Force UTF-8 stdout so box-drawing characters render on Windows cp1252 consoles.
+# Safe no-op on terminals that already support UTF-8.
+if hasattr(sys.stdout, "reconfigure"):
+    with contextlib.suppress(Exception):
+        sys.stdout.reconfigure(encoding="utf-8")
 
 from scaffold_lint import __version__
 from scaffold_lint.detectors.scaffold_rules import SCAFFOLD_RULES

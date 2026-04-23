@@ -8,8 +8,8 @@ Thanks for your interest. This is a narrow, focused linter — 7 rules on a sing
 
 **Out-of-scope:**
 
-- Rule-logic analysis (contradictions, coverage gaps) — that belongs in [rule-audit](https://github.com/roli-lpci/rule-audit).
-- Agent-config structural analysis (tool descriptions, role hierarchy, HERM scoring) — that belongs in [lintlang](https://github.com/roli-lpci/lintlang).
+- Rule-logic analysis (contradictions, coverage gaps) — that belongs in [rule-audit](https://github.com/hermes-labs-ai/rule-audit).
+- Agent-config structural analysis (tool descriptions, role hierarchy, HERM scoring) — that belongs in [lintlang](https://github.com/hermes-labs-ai/lintlang).
 - Anything that adds a runtime dependency.
 - Semantic understanding via LLM calls — the point of this tool is zero-inference static analysis.
 
@@ -18,7 +18,7 @@ Open an issue first if you're unsure.
 ## Development setup
 
 ```bash
-git clone https://github.com/roli-lpci/scaffold-lint
+git clone https://github.com/hermes-labs-ai/scaffold-lint
 cd scaffold-lint
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate

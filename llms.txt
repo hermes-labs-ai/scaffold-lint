@@ -52,7 +52,7 @@ MIT
 Staged hermes-seal v1 manifest. SBOM at sbom.cdx.json.
 
 ## Home
-https://github.com/roli-lpci/scaffold-lint
+https://github.com/hermes-labs-ai/scaffold-lint
 
 ## Author
 Rolando Bosch / Hermes Labs (hermes-labs.ai)

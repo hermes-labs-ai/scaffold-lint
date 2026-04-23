@@ -55,10 +55,10 @@ dev = [
 scaffold-lint = "scaffold_lint.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/roli-lpci/scaffold-lint"
-Repository = "https://github.com/roli-lpci/scaffold-lint"
-Issues = "https://github.com/roli-lpci/scaffold-lint/issues"
-Changelog = "https://github.com/roli-lpci/scaffold-lint/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/hermes-labs-ai/scaffold-lint"
+Repository = "https://github.com/hermes-labs-ai/scaffold-lint"
+Issues = "https://github.com/hermes-labs-ai/scaffold-lint/issues"
+Changelog = "https://github.com/hermes-labs-ai/scaffold-lint/blob/main/CHANGELOG.md"
 "Hermes Labs" = "https://hermes-labs.ai"
 
 [tool.hatch.build.targets.wheel]

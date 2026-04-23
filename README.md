@@ -5,8 +5,8 @@
 [![PyPI](https://img.shields.io/pypi/v/scaffold-lint.svg)](https://pypi.org/project/scaffold-lint/)
 [![Python](https://img.shields.io/pypi/pyversions/scaffold-lint.svg)](https://pypi.org/project/scaffold-lint/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![CI](https://github.com/roli-lpci/scaffold-lint/actions/workflows/ci.yml/badge.svg)](https://github.com/roli-lpci/scaffold-lint/actions/workflows/ci.yml)
-[![Hermes Seal](https://img.shields.io/badge/hermes--seal-manifest%20staged-blue)](https://github.com/roli-lpci/scaffold-lint)
+[![CI](https://github.com/hermes-labs-ai/scaffold-lint/actions/workflows/ci.yml/badge.svg)](https://github.com/hermes-labs-ai/scaffold-lint/actions/workflows/ci.yml)
+[![Hermes Seal](https://img.shields.io/badge/hermes--seal-manifest%20staged-blue)](https://github.com/hermes-labs-ai/scaffold-lint)
 
 If you're scaffolding an LLM prompt with step-by-step + evidential + format constraints all at once and wondering whether it's helping or hurting — this tells you.
 
@@ -96,15 +96,15 @@ for issue in result.issues:
 
 - Single-turn chat where the "prompt" is just a question — there's no scaffold to lint.
 - Non-English prompts — the rule heuristics are English-only today.
-- Deep semantic analysis of rules inside the prompt (use [**rule-audit**](https://github.com/roli-lpci/rule-audit) for that).
-- Structural analysis of agent configs with tool descriptions and role hierarchies (use [**lintlang**](https://github.com/roli-lpci/lintlang) for that).
+- Deep semantic analysis of rules inside the prompt (use [**rule-audit**](https://github.com/hermes-labs-ai/rule-audit) for that).
+- Structural analysis of agent configs with tool descriptions and role hierarchies (use [**lintlang**](https://github.com/hermes-labs-ai/lintlang) for that).
 
 scaffold-lint, lintlang, and rule-audit each analyze a different axis of the same prompt. On any real system prompt, running all three typically produces zero-overlap findings.
 
 ## Running the tests
 
 ```bash
-git clone https://github.com/roli-lpci/scaffold-lint
+git clone https://github.com/hermes-labs-ai/scaffold-lint
 cd scaffold-lint
 pip install -e ".[dev]"
 pytest
@@ -131,21 +131,21 @@ MIT — see [LICENSE](LICENSE).
 **The Hermes Labs OSS audit stack** (public, production-grade, no SaaS):
 
 **Static audit** (before deployment)
-- [**lintlang**](https://github.com/roli-lpci/lintlang) — Static linter for AI agent configs, tool descriptions, system prompts. HERM v1.1 scoring + H1-H7 structural detectors. `pip install lintlang`
-- [**rule-audit**](https://github.com/roli-lpci/rule-audit) — Static prompt audit — contradictions, coverage gaps, priority ambiguities, absoluteness issues
-- [**intent-verify**](https://github.com/roli-lpci/intent-verify) — Repo intent verification + spec-drift checks
+- [**lintlang**](https://github.com/hermes-labs-ai/lintlang) — Static linter for AI agent configs, tool descriptions, system prompts. HERM v1.1 scoring + H1-H7 structural detectors. `pip install lintlang`
+- [**rule-audit**](https://github.com/hermes-labs-ai/rule-audit) — Static prompt audit — contradictions, coverage gaps, priority ambiguities, absoluteness issues
+- [**intent-verify**](https://github.com/hermes-labs-ai/intent-verify) — Repo intent verification + spec-drift checks
 
 **Runtime observability** (while the agent runs)
-- [**little-canary**](https://github.com/roli-lpci/little-canary) — Prompt injection detection via sacrificial canary-model probes
-- [**suy-sideguy**](https://github.com/roli-lpci/suy-sideguy) — Runtime policy guard — user-space enforcement + forensic reports
-- [**colony-probe**](https://github.com/roli-lpci/colony-probe) — Prompt confidentiality audit — detects system-prompt reconstruction
+- [**little-canary**](https://github.com/hermes-labs-ai/little-canary) — Prompt injection detection via sacrificial canary-model probes
+- [**suy-sideguy**](https://github.com/hermes-labs-ai/suy-sideguy) — Runtime policy guard — user-space enforcement + forensic reports
+- [**colony-probe**](https://github.com/hermes-labs-ai/colony-probe) — Prompt confidentiality audit — detects system-prompt reconstruction
 
 **Regression & scoring** (to prove what changed)
-- [**hermes-jailbench**](https://github.com/roli-lpci/hermes-jailbench) — Jailbreak regression benchmark. `pip install hermes-jailbench`
-- [**agent-convergence-scorer**](https://github.com/roli-lpci/agent-convergence-scorer) — Score how similar N agent outputs are. `pip install agent-convergence-scorer`
+- [**hermes-jailbench**](https://github.com/hermes-labs-ai/hermes-jailbench) — Jailbreak regression benchmark. `pip install hermes-jailbench`
+- [**agent-convergence-scorer**](https://github.com/hermes-labs-ai/agent-convergence-scorer) — Score how similar N agent outputs are. `pip install agent-convergence-scorer`
 
 **Supporting infra**
-- [**claude-router**](https://github.com/roli-lpci/claude-router) · [**zer0dex**](https://github.com/roli-lpci/zer0dex) · [**forgetted**](https://github.com/roli-lpci/forgetted) · [**quick-gate-python**](https://github.com/roli-lpci/quick-gate-python) · [**quick-gate-js**](https://github.com/roli-lpci/quick-gate-js) · [**repo-audit**](https://github.com/roli-lpci/repo-audit)
+- [**claude-router**](https://github.com/hermes-labs-ai/claude-router) · [**zer0dex**](https://github.com/hermes-labs-ai/zer0dex) · [**forgetted**](https://github.com/hermes-labs-ai/forgetted) · [**quick-gate-python**](https://github.com/hermes-labs-ai/quick-gate-python) · [**quick-gate-js**](https://github.com/hermes-labs-ai/quick-gate-js) · [**repo-audit**](https://github.com/hermes-labs-ai/repo-audit)
 
 Natural pairing: `scaffold-lint` catches *how much* scaffolding you have. `lintlang` catches *how well-structured* it is. `rule-audit` catches *what the rules inside it contradict*. Run all three in CI.
 
